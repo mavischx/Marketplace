@@ -1,0 +1,22 @@
+.editDetails{
+    display:flex;
+    flex-direction:column;
+    width:280px;
+}
+
+.label{
+    text-align: left;
+    font-size:12px;
+    color:gray;
+}
+
+span{
+    font-size:12px;
+    padding:3px;
+    color:red;
+    display:none;
+}
+
+input:invalid ~ span{
+    display:block;
+}
