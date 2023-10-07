@@ -1,12 +1,17 @@
 import React from "react";
+// import AddProject from "./addedproject";
+import AddProject from './AddProject';
 
 
-const AddProject =()=>{
+
+const AddedProject =()=>{
     return(
         <>
 
-        <h1>Add Project</h1>
+        {/* <h1>Add Project</h1> */}
+        <AddProject/>
+
         </>
     )
 }
-export default AddProject;
+export default AddedProject;

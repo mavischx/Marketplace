@@ -1,11 +1,15 @@
 import React from "react";
+import RegisterForm from "../Componenets/RegisterForm"
+import UserRegister from "./UserRegister";
+
 
 
 const Register =()=>{
     return(
         <>
-
-        <h1>Register</h1>
+        <UserRegister/>
+            {/* <RegisterForm/> */}
+        {/* <h1>Register</h1> */}
         </>
     )
 }
