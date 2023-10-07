@@ -2,11 +2,12 @@
   "name": "Marketplace",
   "version": "1.0.0",
   "scripts": {
-    "start:backend": "cd backend && node server.js",
-    "start:frontend": "cd frontend && npm start",
+    "start:backend": "nodemon backend/server.js",
+    "start:frontend": "cd frontend && npm start", 
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
   },
   "devDependencies": {
-    "concurrently": "^8.2.1"
+    "concurrently": "^8.2.1",
+    "nodemon": "^3.0.1"
   }
 }
