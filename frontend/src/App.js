@@ -5,7 +5,7 @@ import Project from './Pages/project';
 import Collaboration from './Pages/collaboration';
 import Register from './Pages/register';
 import Login from './Pages/login';
-import AddProject from './Pages/addproject';
+import AddProject from './Pages/addedproject';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,7 +24,7 @@ function App() {
         <div style={{ display: 'flex', alignItems: 'center', marginRight: '20px' }}>
           <NavLink to="/project" style={({ isActive }) => ({
             color: isActive ? 'greenyellow' : 'white',
-            textDecoration: 'none',
+            textDecoration: 'none', 
           })}>
             Project
           </NavLink>
@@ -48,7 +48,7 @@ function App() {
               </NavLink>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', marginRight: '20px' }}>
-              <NavLink to="/addproject" style={({ isActive }) => ({
+              <NavLink to="/addedproject" style={({ isActive }) => ({
                 color: isActive ? 'greenyellow' : 'white',
                 textDecoration: 'none',
               })}>
@@ -73,7 +73,7 @@ function App() {
               textDecoration: 'none',
             })} onClick={() => {
               console.log("clicked")
-              setIsLoggedIn(false)
+              setIsLoggedIn(false) // Logout: Set isLoggedIn to false
             }}>
               Logout
             </NavLink>
@@ -83,7 +83,7 @@ function App() {
                 color: isActive ? 'greenyellow' : 'white',
                 marginRight: '10px',
                 textDecoration: 'none',
-              })} onClick={() => setIsLoggedIn(false)}>
+              })} onClick={() => setIsLoggedIn(false)}> {/* Login: Set isLoggedIn to true */}
                 Login
               </NavLink>
               <NavLink to="/register" style={({ isActive }) => ({
@@ -102,7 +102,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/collaboration" element={<Collaboration />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/addproject" element={<AddProject />} />
+        <Route path="/addedproject" element={<AddProject />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>

@@ -1,11 +1,11 @@
 import React from "react";
-import NavBar from "../Components/Navbar";
+
 
 const Register =()=>{
-    return (
+    return(
         <>
-           
-            <h1>Register</h1>
+
+        <h1>Register</h1>
         </>
     )
 }

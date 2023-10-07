@@ -1,11 +1,10 @@
 import React from "react";
-import NavBar from "../Components/Navbar";
 
 const Profile =()=>{
-    return (
+    return(
         <>
-           
-            <h1>Profile</h1>
+
+        <h1>Profile</h1>
         </>
     )
 }
