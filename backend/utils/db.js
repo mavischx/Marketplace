@@ -1,10 +1,9 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('Databases', 'root', '', {
+const sequelize = new Sequelize('marketplace', 'root', '', {
+    dialect: 'mysql',
     host: 'localhost',
-  dialect: 'mysql',
-  port: 3306,
-  
+    port: 3307     
 });
 
 sequelize
