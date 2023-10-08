@@ -8,11 +8,11 @@ exports.getUser = (req, res, next) => {
             return res.status(404).send('User not found');
         }
 
-        res.render('user', {
-            user: user,
-            pageTitle: user.username,
-            path: '/user'
-        });
+        // res.render('user', {
+        //     user: user,
+        //     pageTitle: user.username,
+        //     path: '/user'
+        // });
         res.json(user);
     })
     .catch(err => {
@@ -38,11 +38,13 @@ exports.register = (req, res, next) => {
         skills: skills,
         location: location
     })
+
     .then(result => {
         console.log('Successfully register');
-        req.sesion.isLoggedIn = true;
-        req.session.user = user;
-        res.redirect("/project");
+        // req.sesion.isLoggedIn = true;
+        req.session.user = User;
+        res.json(User);
+        //res.redirect("/project");
     }).catch(err => {
         console.log(err);
     });
@@ -60,6 +62,8 @@ exports.postLogin = (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
 
+    console.log("Received data from frontend:", email, password);
+
     User.findOne({ where:{
             email: email,
             password: password
@@ -68,8 +72,8 @@ exports.postLogin = (req, res, next) => {
         if (user){
             // req.sesion.isLoggedIn = true;
             req.session.user = user;
-            res.redirect('/project');
-            res.json(user);
+            // res.redirect('http://localhost:3001/');
+            return res.json(user);
             }else{
                 res.render('login', {message: "Invalid credentials!"});
             }

@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const db = require('./utils/db');
 const sequelize = require('./utils/db');
 const session = require('express-session');
+const cors = require('cors');
 const User = require('./models/user');
 const userRoutes = require('./routes/user');
 
@@ -19,6 +20,13 @@ app.use(
       saveUninitialized: false,
     })
   );
+
+app.use(
+    cors({
+    origin: ['http://localhost:3000'], // Replace with your frontend's origin(s)
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // This allows cookies and other credentials to be sent with the request
+  }));
 
 app.use(userRoutes);
 

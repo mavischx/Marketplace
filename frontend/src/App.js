@@ -6,6 +6,7 @@ import Collaboration from './Pages/collaboration';
 import Register from './Pages/register';
 import Login from './Pages/login';
 import AddProject from './Pages/addedproject';
+import ShowUserDetails from './Pages/ShowUserDetails';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -105,6 +106,7 @@ function App() {
         <Route path="/addedproject" element={<AddProject />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/showUserDetails" element={<ShowUserDetails/>} />
       </Routes>
     </BrowserRouter>
   );
