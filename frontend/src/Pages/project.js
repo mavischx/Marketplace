@@ -1,4 +1,5 @@
 import React from "react";
+import AddedProject from "./addedproject";
 
 const Project =()=>{
     return(

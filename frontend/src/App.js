@@ -23,12 +23,15 @@ function App() {
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', marginRight: '20px' }}>
+      
           <NavLink to="/project" style={({ isActive }) => ({
             color: isActive ? 'greenyellow' : 'white',
             textDecoration: 'none', 
+            marginRight: '20px'
           })}>
             Project
           </NavLink>
+
         </div>
         {isLoggedIn && (
           <>
@@ -105,7 +108,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/addedproject" element={<AddProject />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn}/>} />
         <Route path="/showUserDetails" element={<ShowUserDetails/>} />
       </Routes>
     </BrowserRouter>

@@ -3,7 +3,7 @@ import './UserLogin.css';
 import LoginForm from "../Componenets/LoginForm";
 import { useNavigate } from 'react-router-dom';
 
-function UserLogin() {
+function UserLogin({setIsLoggedIn}) {
   const [formData, setFormData] = useState({
     
     email: "",
@@ -56,34 +56,45 @@ function UserLogin() {
 
     if (!hasErrors) {
       try {
-        const response = await fetch('http://localhost:3001/login', {  
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
+        // const response = await fetch('http://localhost:3001/login', {  
+        //   method: 'POST',
+        //   headers: {
+        //     'Content-Type': 'application/json',
+        //   },
+        //   body: JSON.stringify(formData),
+        // });
       
-        if (response.ok) {
-          var userId;
-          const data = await response.json();
-           console.log(data);
-          if (data.id) {
-            userId = data.id;
-            sessionStorage.setItem('userId', userId);
+        // if (response.ok) {
+        //   var userId;
+        //   const data = await response.json();
+        //    console.log(data);
+        //   if (data.id) {
+        //     userId = data.id;
+        //     sessionStorage.setItem('userId', userId);
             
 
-            console.log(userId);
-            // Store the token in local storage or perform any other actions upon successful login
-            localStorage.setItem('token', data.token);
-          }
-          console.log(userId);
+        //     console.log(userId);
+        //     // Store the token in local storage or perform any other actions upon successful login
+        //     localStorage.setItem('token', data.token);
+        //   }
+        //   console.log(userId);
+        // Simulating a successful response
+      const data = { id: 1, token: 'mockToken123' }; // Mock data
+      
+      console.log(data);
+      if (data.id) {
+        const userId = data.id;
+        sessionStorage.setItem('userId', userId);
+        localStorage.setItem('token', data.token);
+        setIsLoggedIn(true)
+        
           navigate('../ShowUserDetails');
-        } else {
-          // Log the error response from the server
-          const errorResponse = await response.json();
-          console.error('Login Failed:', errorResponse.message);
-        }
+        // } else {
+        //   // Log the error response from the server
+        //   const errorResponse = await response.json();
+        //   console.error('Login Failed:', errorResponse.message);
+        // }
+      }
       } catch (error) {
         console.error('Error:', error);
       }
